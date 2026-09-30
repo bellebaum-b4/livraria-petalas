@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livraria Pétalas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">🌸 Livraria Pétalas</a>
+      <button class="cart-btn" onclick="openCheckout()">🛒 Carrinho (<span id="cart-count">0</span>)</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1>Descubra Novas Histórias</h1>
+    <p>Escolha a sua categoria preferida abaixo.</p>
+  </div>
+
+  <div class="categories-nav">
+    <button class="cat-btn active" onclick="filterCategory('todos', this)">Todos</button>
+    <button class="cat-btn" onclick="filterCategory('romance', this)">Romance</button>
+    <button class="cat-btn" onclick="filterCategory('ficcao', this)">Ficção Científica</button>
+    <button class="cat-btn" onclick="filterCategory('terror', this)">Terror</button>
+  </div>
+
+  <main class="main-content">
+    <div class="books-grid" id="books-grid"></div>
+  </main>
+
+  <!-- Modal do Produto -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-card">
+      <button class="close-btn" onclick="closeModal('product-modal')">&times;</button>
+      <div class="product-details" id="product-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Modal de Checkout -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="modal-card">
+      <button class="close-btn" onclick="closeModal('checkout-modal')">&times;</button>
+      <h2>Finalizar Pedido</h2>
+      <div id="cart-summary" style="margin: 1rem 0; background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 0.5rem;"></div>
+      <form id="order-form" onsubmit="handleCheckout(event)">
+        <div class="form-group"><label>Nome</label><input type="text" id="name" class="form-control" required></div>
+        <div class="form-group"><label>E-mail</label><input type="email" class="form-control" required></div>
+        <div class="form-group"><label>Endereço</label><input type="text" class="form-control" required></div>
+        <button type="submit" class="btn-add-cart" style="width: 100%; margin-top: 1rem;">Confirmar Pedido</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Livraria Pétalas</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

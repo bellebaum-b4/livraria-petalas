@@ -1,0 +1,61 @@
+:root {
+  --bg-dark: #120b18;
+  --bg-card: #1c1326;
+  --purple-primary: #8b5cf6;
+  --purple-light: #c084fc;
+  --purple-accent: #d8b4fe;
+  --purple-glow: rgba(139, 92, 246, 0.25);
+  --text-main: #f3e8ff;
+  --text-muted: #a78bfa;
+  --border-color: rgba(139, 92, 246, 0.2);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: sans-serif; background: var(--bg-dark); color: var(--text-main); min-height: 100vh; }
+
+header { background: #1c1326; border-bottom: 1px solid var(--border-color); padding: 1.25rem 2rem; position: sticky; top: 0; z-index: 50; }
+.header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: bold; color: var(--purple-accent); text-decoration: none; }
+.cart-btn { background: var(--purple-primary); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 9999px; cursor: pointer; font-weight: 600; }
+
+.hero { text-align: center; padding: 2.5rem 1rem 1rem; }
+.hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.hero p { color: var(--text-muted); }
+
+.categories-nav { display: flex; justify-content: center; gap: 0.75rem; margin: 1.5rem 0 2.5rem; }
+.cat-btn { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); padding: 0.6rem 1.4rem; border-radius: 9999px; cursor: pointer; }
+.cat-btn.active, .cat-btn:hover { background: var(--purple-primary); border-color: var(--purple-accent); }
+
+.main-content { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+
+.book-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 0.75rem; overflow: hidden; display: flex; flex-direction: column; }
+.cover-container { position: relative; padding-top: 140%; background: #000; }
+.cover-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+.book-badge { position: absolute; top: 0.75rem; right: 0.75rem; background: rgba(0,0,0,0.8); color: var(--purple-accent); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; }
+
+.book-info { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+.book-title { font-size: 1.15rem; margin-bottom: 0.25rem; }
+.book-author { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
+.book-footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem; }
+.book-price { font-size: 1.25rem; font-weight: bold; color: var(--purple-accent); }
+.stock-tag { font-size: 0.75rem; color: #34d399; display: block; }
+.stock-tag.out { color: #f87171; }
+
+.btn-details, .btn-add-cart { background: var(--purple-primary); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: 600; }
+.btn-details { background: transparent; border: 1px solid var(--purple-primary); color: var(--purple-accent); }
+.btn-details:hover { background: var(--purple-primary); color: white; }
+
+/* Modais */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: 0.2s; }
+.modal-overlay.active { opacity: 1; pointer-events: all; }
+.modal-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 1rem; max-width: 700px; width: 100%; padding: 2rem; position: relative; max-height: 90vh; overflow-y: auto; }
+.close-btn { position: absolute; top: 1rem; right: 1rem; background: rgba(255,255,255,0.1); border: none; color: white; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; }
+
+.product-details { display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.5rem; }
+.details-cover { width: 100%; border-radius: 0.5rem; }
+.form-group { margin-bottom: 0.75rem; text-align: left; }
+.form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+.form-control { width: 100%; padding: 0.6rem; background: #120b18; border: 1px solid var(--border-color); border-radius: 0.4rem; color: white; }
+
+footer { text-align: center; padding: 1.5rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem; }
